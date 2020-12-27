@@ -1,0 +1,31 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+application {
+    mainClassName = 'com.martinborjesson.pcem.PCemMain' 
+}
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/com.nativelibs4java/bridj
+	compile group: 'com.nativelibs4java', name: 'bridj', version: '0.7.0'
+	// https://mvnrepository.com/artifact/com.1stleg/jnativehook
+	compile group: 'com.1stleg', name: 'jnativehook', version: '2.1.0'
+	// https://mvnrepository.com/artifact/org.ini4j/ini4j
+	compile group: 'org.ini4j', name: 'ini4j', version: '0.5.4'
+	// https://mvnrepository.com/artifact/org.json/json
+	compile group: 'org.json', name: 'json', version: '20201115'
+	// https://mvnrepository.com/artifact/info.picocli/picocli
+	compile group: 'info.picocli', name: 'picocli', version: '4.5.2'
+	// https://mvnrepository.com/artifact/commons-io/commons-io
+	compile group: 'commons-io', name: 'commons-io', version: '2.8.0'
+	// https://mvnrepository.com/artifact/org.lwjgl/lwjgl-openal
+	compile group: 'org.lwjgl', name: 'lwjgl-openal', version: '3.2.3'
+		
+
+    testCompile 'junit:junit:4.12'
+}
