@@ -6,7 +6,7 @@ It should have a simple API and the features that I needed to get DOS up and run
 
 ## Please note
 
-This project has been uploaded as-is and is only to demonstrate how libpcem works and what it can do. The code is a bit messy since I used it to test various functions of libpcem.
+This project has been uploaded as-is and is only to demonstrate how [libpcem](https://github.com/mborjesson/libpcem) works and what it can do. The code is a bit messy since I used it to test various functions of libpcem.
 
 ## How to build
 
