@@ -11,6 +11,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.SourceDataLine;
 
+import com.martinborjesson.pcem.audio.BufferedSourceDataLine;
 import com.martinborjesson.pcem.callbacks.PCemAudioCallbacks;
 
 public class PCemAudio implements PCemAudioCallbacks, Closeable {
@@ -27,7 +28,7 @@ public class PCemAudio implements PCemAudioCallbacks, Closeable {
 		}
 	}
 	
-	private Map<Integer, StreamData> dataLineMap = new HashMap<>();
+	final private Map<Integer, StreamData> dataLineMap = new HashMap<>();
 	
 	public PCemAudio() {
 		this.mixer = getDefaultOutputMixer();
@@ -68,7 +69,7 @@ public class PCemAudio implements PCemAudioCallbacks, Closeable {
 		AudioFormat format = new AudioFormat(sampleRate, sampleSizeInBits, channels, true, false);
 		
 		try {
-			SourceDataLine dataLine = createSourceDataLine();
+			SourceDataLine dataLine = new BufferedSourceDataLine(createSourceDataLine(), 4);
 			dataLine.open(format, sampleRate * sampleSizeInBits * channels / 8 / 10);
 			dataLineMap.put(stream, new StreamData(dataLine));
 			dataLine.start();
